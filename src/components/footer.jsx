@@ -1,11 +1,24 @@
 import React from 'react';
 
+const scrollToTheTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth' 
+  });
+};
+
 export const Footer = () => {
   return (
     <footer className="bg-white py-4 mt-auto">
       <div className="container px-5">
         <div className="row align-items-center justify-content-between flex-column flex-sm-row">
-          <div className="col-auto"><div className="small m-0">Copyright &copy; Your Website 2023</div></div>
+          
+          <div className="col-auto">
+            <div className="small m-0">
+              Copyright &copy; Your Website 2023
+            </div>
+          </div>
+          
           <div className="col-auto">
             <a className="small" href="#!">Privacy</a>
             <span className="mx-1">&middot;</span>
@@ -13,6 +26,16 @@ export const Footer = () => {
             <span className="mx-1">&middot;</span>
             <a className="small" href="#!">Contact</a>
           </div>
+          
+
+          <div className="col-auto" onClick={scrollToTheTop}>
+            <ul>
+              <li>
+                <i className="fas fa-chevron-up"></i>
+              </li>
+            </ul>
+          </div>
+          
         </div>
       </div>
     </footer>
