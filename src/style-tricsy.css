@@ -43,6 +43,7 @@
   --bs-danger: #dc3545;
   --bs-light: #f8f9fa;
   --bs-dark: #212529;
+  /* COLOR SELECTION */
   --bs-primary-rgb: 139, 128, 0;
   --bs-secondary-rgb: 226, 30, 128;
   --bs-success-rgb: 25, 135, 84;
@@ -11560,13 +11561,15 @@ html {
   height: 100%;
 }
 
+/* COLOR SELECTION */
 .bg-gradient-primary-to-secondary {
-  background: #1e30f3;
-  background: linear-gradient(135deg, #1e30f3 0%, #e21e80 100%);
+  background: #1e30f3; /* fallback */
+  background: linear-gradient(135deg, rgb(var(--bs-primary-rgb)) 0%, var(--bs-black) 100%);
 }
 
+/* COLOR SELECTION */
 .text-gradient {
-  background: -webkit-linear-gradient(315deg, #1e30f3 0%, #e21e80 100%);
+  background: -webkit-linear-gradient(315deg, rgb(var(--bs-primary-rgb)) 0%, var(--bs-black) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -11601,41 +11604,53 @@ html {
   left: 50%;
   transform: translateX(-50%);
 }
+
 .profile .dots-1 {
   position: absolute;
   width: 3vw;
   right: 1.5vw;
   top: 4vw;
 }
+
+/* COLOR SELECTION */
 .profile .dots-1 svg {
-  fill: #fff;
+  fill: var(--bs-black);
 }
+
 .profile .dots-2 {
   position: absolute;
   width: 3vw;
   right: -4vw;
   top: 6.05vw;
 }
+
+/* COLOR SELECTION */
 .profile .dots-2 svg {
-  fill: #1e30f3;
+  fill: rgb(var(--bs-primary-rgb));
 }
+
 .profile .dots-3 {
   position: absolute;
   width: 3vw;
   left: 1.5vw;
   bottom: 6.05vw;
 }
+
+/* COLOR SELECTION */
 .profile .dots-3 svg {
-  fill: #fff;
+  fill: var(--bs-black);
 }
+
 .profile .dots-4 {
   position: absolute;
   width: 3vw;
   left: -4vw;
   bottom: 4vw;
 }
+
+/* COLOR SELECTION */
 .profile .dots-4 svg {
-  fill: #1e30f3;
+  fill: rgb(var(--bs-primary-rgb));
 }
 
 @media (min-width: 576px) {

@@ -19,6 +19,17 @@ nav.navbar div.container div#navbarSupportedContent ul.navbar-nav {
 nav.navbar div.container div#navbarSupportedContent ul.navbar-nav li {
   border-bottom: 2px solid transparent !important;
   transition: 0.3s;
+  padding: 0;
+  margin-right: 2rem;
+}
+
+nav.navbar div.container div#navbarSupportedContent ul.navbar-nav li:last-of-type {
+  margin-right: 0;
+}
+
+nav.navbar div.container div#navbarSupportedContent ul.navbar-nav li a {
+  padding: 0;
+  padding-bottom: 0.5rem;
 }
 
 nav.navbar div.container div#navbarSupportedContent ul.navbar-nav li:hover {
