@@ -126,7 +126,7 @@ main section .under-jumbotron .d-flex.justify-content-evenly {
 }
 
 .contact-page input:focus,
-.contact.page textarea:focus {
+.contact-page textarea:focus {
   /* 1. Change the actual border color on focus */
   border-color: rgb(var(--bs-primary-rgb)) !important; 
   
