@@ -125,6 +125,14 @@ main section .under-jumbotron .d-flex.justify-content-evenly {
   font-size: 3rem !important;
 }
 
+/* RESUME PAGE START */
+
+
+
+/* RESUME PAGE END */
+
+/* CONTACT PAGE START */
+
 .contact-page input:focus,
 .contact-page textarea:focus {
   /* 1. Change the actual border color on focus */
@@ -136,6 +144,8 @@ main section .under-jumbotron .d-flex.justify-content-evenly {
   /* 3. Override Bootstrap's blue glowing shadow (this is usually the culprit!) */
   box-shadow: 0 0 0 0.25rem rgba(var(--bs-primary-rgb), 0.25) !important;
 }
+
+/* CONTACT PAGE END */
 
 /* FOOTER */
 footer .scroll-top-btn {

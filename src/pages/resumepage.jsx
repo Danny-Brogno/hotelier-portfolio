@@ -15,15 +15,18 @@ export const ResumePage = () => {
       </div>
       <div className="row gx-5 justify-content-center">
         <div className="col-lg-12 col-xl-12 col-xxl-12 col-md-12 col-sm-12">
-          <section>
-            <div className="d-flex align-items-center justify-content-between mb-4">
-              <h2 className="text-primary fw-bolder mb-0">Experience</h2>
-              <a className="btn btn-primary px-4 py-3" href="#!">
-                <div className="d-inline-block bi bi-download me-2"></div>
-                Download Resume
-              </a>
-            </div>
-
+          
+          <div className="d-flex align-items-center justify-content-between mb-4">
+            <h2 className="text-primary fw-bolder mb-0">Experience</h2>
+            <a className="btn btn-primary px-4 py-3" href="#!">
+              <div className="d-inline-block bi bi-download me-2"></div>
+              Download Resume
+            </a>
+          </div>
+          
+          <section className="outer-container">
+            
+            {/* EXPERIENCE 1 */}
             <div className="card shadow border-0 rounded-4 mb-5">
               <div className="card-body p-5">
                 <div className="row align-items-center gx-5">
@@ -41,14 +44,15 @@ export const ResumePage = () => {
                 </div>
               </div>
             </div>
-
+            
+            {/* EXPERIENCE 2 */}
             <div className="card shadow border-0 rounded-4 mb-5">
               <div className="card-body p-5">
                 <div className="row align-items-center gx-5">
                   <div className="col text-center text-lg-start mb-4 mb-lg-0">
                     <div className="bg-light p-4 rounded-4">
                       <div className="text-primary fw-bolder mb-2">2017 - 2019</div>
-                      <div className="small fw-bolder">SEM Specialist</div>
+                      <div className="small fw-bolder">PIZZA Specialist</div>
                       <div className="small text-muted">Wayne Enterprises</div>
                       <div className="small text-muted">Gotham City, NY</div>
                     </div>
@@ -59,6 +63,67 @@ export const ResumePage = () => {
                 </div>
               </div>
             </div>
+            
+            {/* EXPERIENCE 3 */}
+            <div className="card shadow border-0 rounded-4 mb-5">
+              <div className="card-body p-5">
+                <div className="row align-items-center gx-5">
+                  <div className="col text-center text-lg-start mb-4 mb-lg-0">
+                    <div className="bg-light p-4 rounded-4">
+                      <div className="text-primary fw-bolder mb-2">2016 - 2017</div>
+                      <div className="small fw-bolder">Laughter Yoga Instructor</div>
+                      <div className="small text-muted">Shit City</div>
+                      <div className="small text-muted">Zimbabwe, Africa</div>
+                    </div>
+                  </div>
+                  <div className="col-lg-8">
+                    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus laudantium, voluptatem quis repellendus eaque sit animi illo ipsam amet officiis corporis sed aliquam non voluptate corrupti excepturi maxime porro fuga.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* EXPERIENCE 4 */}
+            <div className="card shadow border-0 rounded-4 mb-5">
+              <div className="card-body p-5">
+                <div className="row align-items-center gx-5">
+                  <div className="col text-center text-lg-start mb-4 mb-lg-0">
+                    <div className="bg-light p-4 rounded-4">
+                      <div className="text-primary fw-bolder mb-2">2015 - 2016</div>
+                      <div className="small fw-bolder">Sperm Bank Receptionist</div>
+                      <div className="small text-muted">Fairy Pool forest</div>
+                      <div className="small text-muted">Isle of Skye, Scotland</div>
+                    </div>
+                  </div>
+                  <div className="col-lg-8">
+                    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus laudantium, voluptatem quis repellendus eaque sit animi illo ipsam amet officiis corporis sed aliquam non voluptate corrupti excepturi maxime porro fuga.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* EXPERIENCE 5 */}
+            <div className="card shadow border-0 rounded-4 mb-5">
+              <div className="card-body p-5">
+                <div className="row align-items-center gx-5">
+                  <div className="col text-center text-lg-start mb-4 mb-lg-0">
+                    <div className="bg-light p-4 rounded-4">
+                      <div className="text-primary fw-bolder mb-2">2014 - 2015</div>
+                      <div className="small fw-bolder">Octopus Masseur</div>
+                      <div className="small text-muted">The Fishmarket</div>
+                      <div className="small text-muted">Newhaven, Edinburgh</div>
+                    </div>
+                  </div>
+                  <div className="col-lg-8">
+                    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus laudantium, voluptatem quis repellendus eaque sit animi illo ipsam amet officiis corporis sed aliquam non voluptate corrupti excepturi maxime porro fuga.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* EXPERIENCE HERE */}
+            {/* EXPERIENCE HERE */}
+            {/* EXPERIENCE HERE */}
           </section>
 
           <section>
