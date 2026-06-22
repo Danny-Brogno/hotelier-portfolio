@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 export const ContactPage = () => {
   
   useEffect(() => {
-    document.title = "Contact page";
+    document.title = "Majesca Maclan | Contact page";
   }, []);
 
   // Track the raw input values inside a local state object

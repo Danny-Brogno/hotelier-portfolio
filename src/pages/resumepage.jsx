@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 export const ResumePage = () => {
   
   useEffect(() => {
-    document.title = "Resume page";
+    document.title = "Majesca Maclan | Resume page";
   }, []);
   
   return (

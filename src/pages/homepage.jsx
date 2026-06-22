@@ -7,7 +7,7 @@ export const HomePage = ({ currentPage, setCurrentPage }) => {
   const targetRef = useRef(null);
   
   useEffect(() => {
-    document.title = "Homepage";
+    document.title = "Majesca Maclan | Homepage";
 
     // Set up the Intersection Observer inside the hook
     const observer = new IntersectionObserver(
