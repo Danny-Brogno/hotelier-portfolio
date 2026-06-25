@@ -10,6 +10,18 @@ body {
   background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity)) !important;
 }
 
+header {
+  position: relative;
+  background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), 
+  url('./assets/hotel-lobby.png') no-repeat center center;
+  background-size: cover;
+}
+
+/* Ensure the text contrast looks sharp over the newly darkened background */
+header h1, header .fs-3 {
+  color: white !important;
+}
+
 /* NAVBAR */
 nav.navbar div.container div:first-of-type a span {
   font-size: 2rem;
@@ -46,13 +58,23 @@ main header div.container .badge {
   font-size: 1.4rem;
 }
 
+/* ==========================================================================
+   1. FIRST BUTTON: .btn-primary 
+   Normal: White background, Burgundy border
+   Hover:  Burgundy background, White text
+   ========================================================================== */
 main header div.container .btn-primary,
 .resume-page.container .btn-primary {
-  --bs-btn-color: #fff;
-  --bs-btn-bg: rgb(var(--bs-primary-rgb));
-  --bs-btn-border-color: var(--bs-black);
-  --bs-btn-hover-bg: var(--bs-black);
-  --bs-btn-hover-border-color: rgb(var(--bs-primary-rgb));
+  --bs-btn-color: rgb(var(--bs-primary-rgb)); /* Start with burgundy text */
+  --bs-btn-bg: var(--bs-white);                /* Start with white background */
+  --bs-btn-border-color: rgb(var(--bs-primary-rgb));
+  
+  /* Bootstrap Variable Hover states */
+  --bs-btn-hover-bg: rgb(var(--bs-primary-rgb));
+  --bs-btn-hover-border-color: var(--bs-white);
+  --bs-btn-hover-color: var(--bs-white);       /* Tells Bootstrap to make text white on hover */
+
+  /* Active / Focus / Disabled defaults */
   --bs-btn-focus-shadow-rgb: 64, 79, 245;
   --bs-btn-active-color: #fff;
   --bs-btn-active-bg: #1826c2;
@@ -63,16 +85,33 @@ main header div.container .btn-primary,
   --bs-btn-disabled-border-color: #1e30f3;
 }
 
+/* Explicit Hover rule to ensure text stays white */
+main header div.container .btn-primary:hover,
 .resume-page.container .btn-primary:hover {
-  color: rgb(var(--bs-primary-rgb)) !important;
+  color: var(--bs-white) !important;
 }
 
+
+/* ==========================================================================
+   2. SECOND BUTTON: .btn-outline-dark
+   Normal: Burgundy background, White text
+   Hover:  White background, Burgundy text
+   ========================================================================== */
 main header div.container .btn-outline-dark {
-  --bs-btn-color: #212529;
+  /* FORCE the default text color to be white */
+  color: var(--bs-white) !important; 
+  
+  /* Default background setup */
+  --bs-btn-bg: rgb(var(--bs-primary-rgb));       /* Burgundy background */
+  --bs-btn-color: var(--bs-white);               /* (Fallback variable) */
   --bs-btn-border-color: rgb(var(--bs-primary-rgb));
-  --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: var(--bs-black);
+  
+  /* Hover State: Flips to White background with Burgundy text */
+  --bs-btn-hover-bg: var(--bs-white);            /* White hover background */
   --bs-btn-hover-border-color: rgb(var(--bs-primary-rgb));
+  --bs-btn-hover-color: rgb(var(--bs-primary-rgb)); /* Burgundy hover text */
+
+  /* Active / Focus / Disabled defaults */
   --bs-btn-focus-shadow-rgb: 33, 37, 41;
   --bs-btn-active-color: #fff;
   --bs-btn-active-bg: #212529;
@@ -84,9 +123,8 @@ main header div.container .btn-outline-dark {
   --bs-gradient: none;
 }
 
-main header div.container .btn-primary:hover,
-main header div.container .btn-outline-dark:hover,
-div.resume.container .btn-primary:hover {
+/* Explicit Hover rule to ensure text turns Burgundy on hover */
+main header div.container .btn-outline-dark:hover {
   color: rgb(var(--bs-primary-rgb)) !important;
 }
 

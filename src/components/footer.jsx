@@ -20,7 +20,7 @@ export const Footer = ({ currentPage, setCurrentPage }) => {
           </div>
           
           <div className="col-auto scroll-top-btn" onClick={scrollToTheTop}>
-            <div className="bg-gradient-primary-to-secondary">
+            <div className="bg-gradient-primary-to-secondary2">
               <div>
                 <i id="foot-chevron" className="bi bi-chevron-up"></i>
               </div>

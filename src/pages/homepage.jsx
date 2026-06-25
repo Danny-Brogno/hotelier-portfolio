@@ -1,37 +1,55 @@
 import React, { useEffect, useState, useRef } from 'react';
 import profileImg from '../assets/profile.png';
 
+// Custom component to handle the counting animation smoothly
+const AnimatedCounter = ({ endValue, duration = 2000, suffix = "" }) => {
+  const [count, setCount] = useState(1);
+
+  useEffect(() => {
+    let start = 1;
+    const end = parseInt(endValue, 10);
+    if (start === end) return;
+
+    let totalMiliseconds = duration;
+    let incrementTime = Math.max(Math.floor(totalMiliseconds / end), 30);
+    
+    let timer = setInterval(() => {
+      start += 1;
+      setCount(start);
+      if (start === end) clearInterval(timer);
+    }, incrementTime);
+
+    return () => clearInterval(timer);
+  }, [endValue, duration]);
+
+  return <>{suffix === "+" ? `${count}+` : `${count}${suffix}`}</>;
+};
+
 export const HomePage = ({ currentPage, setCurrentPage }) => {
-  
   const [animate, setAnimate] = useState(false);
   const targetRef = useRef(null);
   
   useEffect(() => {
     document.title = "Majesca Maclan | Homepage";
 
-    // Set up the Intersection Observer inside the hook
+    const currentTarget = targetRef.current;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
-        // If the element is visible in the viewport
         if (entry.isIntersecting) {
           setAnimate(true); 
-          // Once it animates, we can stop observing it
-          if (targetRef.current) observer.unobserve(targetRef.current);
+          if (currentTarget) observer.unobserve(currentTarget);
         }
       },
-      {
-        threshold: 0.4, // Triggers when 40% of the element is visible on screen
-      }
+      { threshold: 0.4 }
     );
 
-    // Start observing the target element
-    if (targetRef.current) {
-      observer.observe(targetRef.current);
+    if (currentTarget) {
+      observer.observe(currentTarget);
     }
 
-    // Cleanup observer on component unmount
     return () => {
-      if (targetRef.current) observer.disconnect();
+      if (currentTarget) observer.disconnect();
     };
   }, []);
   
@@ -39,21 +57,22 @@ export const HomePage = ({ currentPage, setCurrentPage }) => {
     <>
       <main className="flex-shrink-0 bg-light">
 
-        <header className="py-5">
+        {/* JUMBOTRON HEADER */}
+        <header className="py-5 bg-gradient-primary-to-secondary">
           <div className="homepage container px-5 pb-5">
             <div className="row gx-5 align-items-center">
               <div className="col-xxl-5">
                 <div className="text-center text-xxl-start">
-                  <div className="badge bg-gradient-primary-to-secondary text-white mb-4">
+                  <div className="badge bg-gradient-primary-to-secondary2 text-white mb-4">
                     <div className="text-uppercase">
                       Sales &middot; & &middot; Marketing
                     </div>
                   </div>
-                  <div className="fs-3 fw-light text-muted">
+                  <div className="fs-3 fw-light text-white opacity-75">
                     I can help your business to
                   </div>
                   <h1 className="display-3 fw-bolder mb-5">
-                    <span className="text-gradient">
+                    <span className="text-white">
                       Drive predictable revenue and market expansion
                     </span>
                   </h1>
@@ -69,8 +88,8 @@ export const HomePage = ({ currentPage, setCurrentPage }) => {
               </div>
               <div className="col-xxl-7">
                 <div className="d-flex justify-content-center mt-5 mt-xxl-0">
-                  <div className="profile bg-gradient-primary-to-secondary">
-                    <img className="profile-img" src={profileImg} alt="..." />
+                  <div className="profile bg-gradient-primary-to-secondary2">
+                    <img className="profile-img" src={profileImg} alt="Majesca Maclan" />
                   </div>
                 </div>
               </div>
@@ -78,7 +97,38 @@ export const HomePage = ({ currentPage, setCurrentPage }) => {
           </div>
         </header>
 
-        {/* Target section hooked up to the intersection tracking ref */}
+        {/* METRICS COUNTER GRID */}
+        <div className="container px-5 mt-5">
+          <div className="text-center mb-4">
+          <h2 className="display-5 fw-bolder">
+            <span className="text-gradient d-inline">
+              Some of my numbers
+            </span>
+          </h2>
+          </div>
+          <div className="row text-center bg-white p-4 rounded shadow-sm border">
+            <div className="col-md-4 py-3">
+              <h2 className="display-4 fw-bold" style={{ color: '#722f37' }}>
+                <AnimatedCounter endValue="45" suffix="%" />
+              </h2>
+              <p className="text-muted text-uppercase small mb-0 fw-semibold">Revenue Growth Achieved</p>
+            </div>
+            <div className="col-md-4 py-3 border-start border-end">
+              <h2 className="display-4 fw-bold" style={{ color: '#722f37' }}>
+                £2.5M+
+              </h2>
+              <p className="text-muted text-uppercase small mb-0 fw-semibold">Annual Budget Managed</p>
+            </div>
+            <div className="col-md-4 py-3">
+              <h2 className="display-4 fw-bold" style={{ color: '#722f37' }}>
+                <AnimatedCounter endValue="15" suffix=" years" />
+              </h2>
+              <p className="text-muted text-uppercase small mb-0 fw-semibold">Luxury Hospitality Experience</p>
+            </div>
+          </div>
+        </div>
+
+        {/* ABOUT ME SECTION */}
         <section ref={targetRef}>
           <div className="container under-jumbotron px-5 my-5">
             <div className="row gx-5 justify-content-center">
@@ -89,15 +139,14 @@ export const HomePage = ({ currentPage, setCurrentPage }) => {
                       About Me
                     </span>
                   </h2>
-                  {/* Dynamic class assigns standard styling or type-animation based on visibility */}
                   <p className={`lead fw-light mb-4 ${animate ? 'animate-typing' : ''}`}>
                     My name is Majesca Maclan and I build high-performing growth strategies.
                   </p>
-                  <p className="text-muted">
+                  <p className="text-muted px-lg-5">
                     Rising from an event clerk to director of sales and marketing, I seamlessly lead sales and marketing teams.
                     I personally engage clients and manage diverse vendors from premium catering to sound and lighting technicians—delivering top-tier results with elegance, professionalism, and genuine kindness.
                   </p>
-                  <div className="d-flex justify-content-evenly fs-2 gap-4">
+                  <div className="d-flex justify-content-evenly fs-2 gap-4 mt-4">
                     <a className="text-gradient" href="mailto:majesca.maclan@gmail.com">
                       <i className="bi bi-at"></i>
                     </a>
