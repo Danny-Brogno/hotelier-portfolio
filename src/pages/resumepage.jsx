@@ -1,9 +1,22 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 export const ResumePage = () => {
+  const highlightsRef = useRef(null);
   
   useEffect(() => {
     document.title = "Majesca Maclan | Resume page";
+
+    // Check if the home button flagged that we should scroll down directly
+    const checkScrollFlag = sessionStorage.getItem('scrollToPortfolioHighlights');
+    if (checkScrollFlag === 'true' && highlightsRef.current) {
+      // Remove flag immediately to avoid sticky behavior on hard refresh
+      sessionStorage.removeItem('scrollToPortfolioHighlights');
+      
+      // Instantly scroll down directly to that section
+      setTimeout(() => {
+        highlightsRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 100);
+    }
   }, []);
   
   return (
@@ -121,9 +134,6 @@ export const ResumePage = () => {
               </div>
             </div>
             
-            {/* EXPERIENCE HERE */}
-            {/* EXPERIENCE HERE */}
-            {/* EXPERIENCE HERE */}
           </section>
 
           <section>
@@ -151,7 +161,6 @@ export const ResumePage = () => {
                 </div>
               </div>
             </div>
-            
             
             <div className="card shadow border-0 rounded-4 mb-5">
                 <div className="card-body p-5">
@@ -191,8 +200,43 @@ export const ResumePage = () => {
                     </div>
                 </div>
             </div>
-            
           </section>
+
+          {/* MOVED SECTION: PORTFOLIO METRICS PROOF AT THE VERY BOTTOM */}
+          <section ref={highlightsRef} id="portfolio-highlights">
+            <div className="card shadow border-0 rounded-4 mb-5" style={{ borderLeft: '6px solid rgb(132, 45, 62)' }}>
+              <div className="card-body p-5">
+                <div className="row align-items-center gx-5">
+                  <div className="col-lg-4 text-center text-lg-start mb-4 mb-lg-0">
+                    <div className="p-4 rounded-4" style={{ backgroundColor: 'rgba(132, 45, 62, 0.05)' }}>
+                      <div className="fw-bolder mb-2" style={{ color: 'rgb(132, 45, 62)' }}>OPERATIONAL PROOF</div>
+                      <div className="small fw-bold text-dark">Data-Driven Leadership Impact</div>
+                    </div>
+                  </div>
+                  <div className="col-lg-8">
+                    <h4 className="fw-bold mb-3" style={{ color: 'rgb(132, 45, 62)' }}>How I Managed These Budgets</h4>
+                    <div className="mb-3">
+                      <strong className="d-block text-dark small text-uppercase mb-1">The Strategy & Execution</strong>
+                      <p className="text-muted small mb-0">
+                        Designed and deployed a dynamic resource allocation matrix across high-end properties. Re-negotiated vendor supply chain agreements, optimized operational workflows, and strategically funneled capital directly into premium guest experiences.
+                      </p>
+                    </div>
+                    <div className="row mt-4 pt-3 border-top g-2 text-center text-lg-start">
+                      <div className="col-6 col-md-4">
+                        <span className="d-block fs-3 fw-bold" style={{ color: 'rgb(132, 45, 62)' }}>+45%</span>
+                        <span className="text-muted small">Revenue Growth</span>
+                      </div>
+                      <div className="col-6 col-md-4 border-start">
+                        <span className="d-block fs-3 fw-bold" style={{ color: 'rgb(132, 45, 62)' }}>£2.5M+</span>
+                        <span className="text-muted small">Annual Budget</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
         </div>
       </div>
     </div>

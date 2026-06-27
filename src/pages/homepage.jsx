@@ -76,6 +76,13 @@ export const HomePage = ({ currentPage, setCurrentPage }) => {
       if (currentMetricsTarget) metricsObserver.disconnect();
     };
   }, []);
+
+  // Custom handler to flag viewport scrolling before changing pages
+  const handleScrollToHighlights = (e) => {
+    e.preventDefault();
+    sessionStorage.setItem('scrollToPortfolioHighlights', 'true');
+    setCurrentPage("resumepage");
+  };
   
   return (
     <>
@@ -254,6 +261,17 @@ export const HomePage = ({ currentPage, setCurrentPage }) => {
               <p className="text-muted text-uppercase small mb-0 fw-semibold">Luxury Hospitality Experience</p>
             </div>
           </div>
+        </div>
+        
+        {/* FIXED ACTION BUTTON LINK TO VIEWPORT TARGET */}
+        <div className="text-center mt-4">
+          <button 
+            onClick={handleScrollToHighlights}
+            className="btn btn-outline-primary px-4 py-2 fw-semibold shadow-sm"
+            style={{ borderColor: 'rgb(132, 45, 62)', color: 'rgb(132, 45, 62)' }}
+          >
+            See How I Managed These Budgets <i className="bi bi-arrow-right ms-2"></i>
+          </button>
         </div>
 
         {/* ABOUT ME SECTION */}
