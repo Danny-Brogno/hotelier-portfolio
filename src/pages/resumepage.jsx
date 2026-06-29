@@ -29,9 +29,9 @@ export const ResumePage = () => {
       <div className="row gx-5 justify-content-center">
         <div className="col-lg-12 col-xl-12 col-xxl-12 col-md-12 col-sm-12">
           
-          <div className="d-flex align-items-center justify-content-between mb-4 my-flex-column">
+          <div className="d-flex align-items-center justify-content-between mb-5 my-flex-column">
             <h2 className="text-primary fw-bolder mb-0">Experience</h2>
-            <a className="btn btn-primary px-4 py-3" href="#!">
+            <a className="btn btn-outline-dark px-4 py-3" href="#!">
               <div className="d-inline-block bi bi-download me-2"></div>
               Download Resume
             </a>
@@ -137,7 +137,7 @@ export const ResumePage = () => {
           </section>
 
           <section>
-            <h2 className="text-secondary fw-bolder mb-4">
+            <h2 className="text-secondary fw-bolder mb-5">
               Education
             </h2>
 
@@ -164,82 +164,118 @@ export const ResumePage = () => {
               </div>
             </div>
             
+            <h2 className="text-secondary fw-bolder mb-5">Skills & Competencies</h2>
+            
             <div className="card shadow border-0 rounded-4 mb-5">
               <div className="card-body p-5">
 
+                {/* FIRST GROUP: STRATEGIC / COMMERCIAL SKILLS */}
                 <div className="mb-5">
                   <div className="d-flex align-items-center mb-4">
+                    {/* Updated main title icon */}
+                    <div className="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 me-3">
+                      <i className="bi bi-briefcase"></i>
+                    </div>
+                    <h4 className="fw-bolder mb-0">
+                      <span className="text-gradient d-inline">
+                        Strategic Expertise
+                      </span>
+                    </h4>
+                  </div>
 
-                    <div className="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 me-3"><i className="bi bi-tools"></i></div>
-                      <h3 className="fw-bolder mb-0">
-                        <span className="text-gradient d-inline">
-                          Professional Skills
-                        </span>
-                      </h3>
+                  <div className="row row-cols-1 row-cols-md-3 mb-4">
+                    <div className="col mb-4 mb-md-0">
+                      <div className="d-flex align-items-center bg-light rounded-4 p-3 h-100">
+                        Revenue Management
+                      </div>
                     </div>
 
-                    <div className="row row-cols-1 row-cols-md-3 mb-4">
-
-                      <div className="col mb-4 mb-md-0">
-                        <div className="d-flex align-items-center bg-light rounded-4 p-3 h-100">
-                          SEO/SEM Marketing
-                        </div>
+                    <div className="col mb-4 mb-md-0">
+                      <div className="d-flex align-items-center bg-light rounded-4 p-3 h-100">
+                        Luxury Brand Marketing
                       </div>
-                            
-                      <div className="col mb-4 mb-md-0">
-                        <div className="d-flex align-items-center bg-light rounded-4 p-3 h-100">
-                          Statistical Analysis
-                        </div>
-                      </div>
-                            
-                      <div className="col">
-                        <div className="d-flex align-items-center bg-light rounded-4 p-3 h-100">
-                          Web Development
-                        </div>
-                      </div>
-
                     </div>
-                            
-                    <div className="row row-cols-1 row-cols-md-3">
-
-                      <div className="col mb-4 mb-md-0">
-                        <div className="d-flex align-items-center bg-light rounded-4 p-3 h-100">
-                          Network Security
-                        </div>
+                    <div className="col">
+                      <div className="d-flex align-items-center bg-light rounded-4 p-3 h-100">
+                        B2B & Corporate Sales
                       </div>
-                            
-                      <div className="col mb-4 mb-md-0">
-                        <div className="d-flex align-items-center bg-light rounded-4 p-3 h-100">
-                          Adobe Software Suite
-                        </div>
-                      </div>
-
-                      <div className="col">
-                        <div className="d-flex align-items-center bg-light rounded-4 p-3 h-100">
-                          User Interface Design
-                        </div>
-                      </div>
-
                     </div>
+                  </div>
+
+                  <div className="row row-cols-1 row-cols-md-3">
+                    
+                    <div className="col mb-4 mb-md-0">
+                      <div className="d-flex align-items-center bg-light rounded-4 p-3 h-100">
+                        OPEX & Capital Budgeting
+                      </div>
+                    </div>
+                    
+                    <div className="col mb-4 mb-md-0">
+                      <div className="d-flex align-items-center bg-light rounded-4 p-3 h-100">
+                        Stakeholder Relations
+                      </div>
+                    </div>
+
+                    <div className="col">
+                      <div className="d-flex align-items-center bg-light rounded-4 p-3 h-100">
+                        Digital Acquisition & OTA
+                      </div>
+                    </div>
+                    
+                  </div>
                 </div>
-                  
+
+                {/* SECOND GROUP: OPERATIONAL SKILLS */}
                 <div className="mb-0">
                   <div className="d-flex align-items-center mb-4">
-                    <div className="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 me-3"><i className="bi bi-code-slash"></i></div>
-                    <h3 className="fw-bolder mb-0"><span className="text-gradient d-inline">Languages</span></h3>
+                    {/* Updated main title icon */}
+                    <div className="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 me-3">
+                      <i className="bi bi-clipboard-data"></i>
+                    </div>
+                    <h4 className="fw-bolder mb-0">
+                      <span className="text-gradient d-inline">
+                        Operational Execution
+                      </span>
+                    </h4>
                   </div>
-                    <div className="row row-cols-1 row-cols-md-3 mb-4">
-                      <div className="col mb-4 mb-md-0"><div className="d-flex align-items-center bg-light rounded-4 p-3 h-100">HTML</div></div>
-                      <div className="col mb-4 mb-md-0"><div className="d-flex align-items-center bg-light rounded-4 p-3 h-100">CSS</div></div>
-                      <div className="col"><div className="d-flex align-items-center bg-light rounded-4 p-3 h-100">JavaScript</div></div>
+
+                  <div className="row row-cols-1 row-cols-md-3 mb-4">
+                    <div className="col mb-4 mb-md-0">
+                      <div className="d-flex align-items-center bg-light rounded-4 p-3 h-100">
+                        Guest Experience (CX)
+                      </div>
                     </div>
-                    <div className="row row-cols-1 row-cols-md-3">
-                      <div className="col mb-4 mb-md-0"><div className="d-flex align-items-center bg-light rounded-4 p-3 h-100">Python</div></div>
-                      <div className="col mb-4 mb-md-0"><div className="d-flex align-items-center bg-light rounded-4 p-3 h-100">Ruby</div></div>
-                      <div className="col"><div className="d-flex align-items-center bg-light rounded-4 p-3 h-100">Node.js</div></div>
+                    <div className="col mb-4 mb-md-0">
+                      <div className="d-flex align-items-center bg-light rounded-4 p-3 h-100">
+                        Luxury Brand Standards
+                      </div>
                     </div>
-                 </div>
-                  
+                    <div className="col">
+                      <div className="d-flex align-items-center bg-light rounded-4 p-3 h-100">
+                        MICE & Event Planning
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="row row-cols-1 row-cols-md-3">
+                    <div className="col mb-4 mb-md-0">
+                      <div className="d-flex align-items-center bg-light rounded-4 p-3 h-100">
+                        Competitive Benchmarking
+                      </div>
+                    </div>
+                    <div className="col mb-4 mb-md-0">
+                      <div className="d-flex align-items-center bg-light rounded-4 p-3 h-100">
+                        Public Relations & Media
+                      </div>
+                    </div>
+                    <div className="col">
+                      <div className="d-flex align-items-center bg-light rounded-4 p-3 h-100">
+                        Hospitality Analytics
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
               </div>
             </div>
           </section>

@@ -64,7 +64,7 @@ main header div.container .badge {
 }
 
 /* ==========================================================================
-   1. FIRST BUTTON: .btn-primary 
+   FIRST BUTTON: .btn-primary 
    Normal: White background, Burgundy border
    Hover:  Burgundy background, White text
    ========================================================================== */
@@ -98,14 +98,15 @@ main header div.container .btn-primary:hover,
 
 
 /* ==========================================================================
-   2. SECOND BUTTON: .btn-outline-dark
+   SECOND BUTTON: .btn-outline-dark
    Normal: Burgundy background, White text
    Hover:  White background, Burgundy text
    ========================================================================== */
 main header div.container .btn-outline-dark,
 .resume-page .btn-outline-dark {
   /* FORCE the default text color to be white */
-  color: var(--bs-white) !important; 
+  color: var(--bs-white) !important;
+  font-weight: bold;
   
   /* Default background setup */
   --bs-btn-bg: rgb(var(--bs-primary-rgb));       /* Burgundy background */
@@ -113,10 +114,9 @@ main header div.container .btn-outline-dark,
   --bs-btn-border-color: rgb(var(--bs-primary-rgb));
   
   /* Hover State: Flips to White background with Burgundy text */
-  --bs-btn-hover-bg: var(--bs-white);            /* White hover background */
+  --bs-btn-hover-bg: var(--bs-white);/* White hover background */
   --bs-btn-hover-border-color: rgb(var(--bs-primary-rgb));
-  --bs-btn-hover-color: rgb(var(--bs-primary-rgb)); /* Burgundy hover text */
-
+  --bs-btn-hover-color: rgb(var(--bs-primary-rgb));/* Burgundy hover text */
   /* Active / Focus / Disabled defaults */
   --bs-btn-focus-shadow-rgb: 33, 37, 41;
   --bs-btn-active-color: #fff;
