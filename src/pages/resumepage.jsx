@@ -111,7 +111,7 @@ export const ResumePage = () => {
                     <div className="bg-light p-4 rounded-4">
                       <div className="text-primary fw-bolder mb-2">05/2018 – 12/2020</div>
                       <div className="small fw-bolder">Catering Sales Manager</div>
-                      <div className="small text-muted">The Plaza Lodge</div>
+                      <div className="small text-muted">Holiday Inn</div>
                       <div className="small text-muted">Baguio City, Philippines</div>
                     </div>
                   </div>
@@ -140,13 +140,19 @@ export const ResumePage = () => {
                     <div className="bg-light p-4 rounded-4">
                       <div className="text-primary fw-bolder mb-2">05/2017 – 05/2018</div>
                       <div className="small fw-bolder">Conventions Manager</div>
-                      <div className="small text-muted">The Plaza Lodge</div>
+                      <div className="small text-muted">The Manor at Camp John Hay</div>
                       <div className="small text-muted">Baguio City, Philippines</div>
                     </div>
                   </div>
-                  <div className="col-lg-8">
-                    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus laudantium, voluptatem quis repellendus eaque sit animi illo ipsam amet officiis corporis sed aliquam non voluptate corrupti excepturi maxime porro fuga.</div>
-                  </div>
+                  <ul className="col-lg-8">
+                    <li>
+                      Communicated with management regarding work schedules and client requirements.
+                    </li>
+
+                    <li>
+                      Ensured events ran smoothly while managing budgets and staff training.
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -157,15 +163,21 @@ export const ResumePage = () => {
                 <div className="row align-items-center gx-5">
                   <div className="col text-center text-lg-start mb-4 mb-lg-0">
                     <div className="bg-light p-4 rounded-4">
-                      <div className="text-primary fw-bolder mb-2">2014 - 2015</div>
-                      <div className="small fw-bolder">Octopus Masseur</div>
-                      <div className="small text-muted">The Fishmarket</div>
-                      <div className="small text-muted">Newhaven, Edinburgh</div>
+                      <div className="text-primary fw-bolder mb-2">08/2015 – 06/2016</div>
+                      <div className="small fw-bolder">Sales Manager</div>
+                      <div className="small text-muted">Costa Pacifica</div>
+                      <div className="small text-muted">Baler, Philippines</div>
                     </div>
                   </div>
-                  <div className="col-lg-8">
-                    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus laudantium, voluptatem quis repellendus eaque sit animi illo ipsam amet officiis corporis sed aliquam non voluptate corrupti excepturi maxime porro fuga.</div>
-                  </div>
+                  <ul className="col-lg-8">
+                    <li>
+                      Managed full sales process for new prospects from initial contact to closure.
+                    </li>
+
+                    <li>
+                      Reported business trends and performance metrics to Group Sales Manager.
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
