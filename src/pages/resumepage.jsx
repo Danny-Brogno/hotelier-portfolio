@@ -52,7 +52,25 @@ export const ResumePage = () => {
                     </div>
                   </div>
                   <div className="col-lg-8">
-                    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus laudantium, voluptatem quis repellendus eaque sit animi illo ipsam amet officiis corporis sed aliquam non voluptate corrupti excepturi maxime porro fuga.</div>
+                    <ul>
+                    
+                      <li>
+                        Prepare Sales Reports and Annual Sales &amp; Marketing Plans.
+                      </li>
+                      
+                      <li>
+                        Create effective sales programs to increase brand awareness and positive perception.
+                      </li>
+                      
+                      <li>  
+                        Assist Managing Director in budgeting and strategic marketing within approved plans.
+                      </li>
+                      
+                      <li>
+                        Develop rates and deployment strategies through competitive data and demand analysis.
+                      </li>
+                      
+                    </ul>
                   </div>
                 </div>
               </div>
@@ -83,14 +101,28 @@ export const ResumePage = () => {
                 <div className="row align-items-center gx-5">
                   <div className="col text-center text-lg-start mb-4 mb-lg-0">
                     <div className="bg-light p-4 rounded-4">
-                      <div className="text-primary fw-bolder mb-2">2016 - 2017</div>
-                      <div className="small fw-bolder">Laughter Yoga Instructor</div>
-                      <div className="small text-muted">Shit City</div>
-                      <div className="small text-muted">Zimbabwe, Africa</div>
+                      <div className="text-primary fw-bolder mb-2">01/2021 – 04/2022</div>
+                      <div className="small fw-bolder">Assistant Director of Sales &amp; Marketing</div>
+                      <div className="small text-muted">The Plaza Lodge</div>
+                      <div className="small text-muted">Baguio City, Philippines</div>
                     </div>
                   </div>
                   <div className="col-lg-8">
-                    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus laudantium, voluptatem quis repellendus eaque sit animi illo ipsam amet officiis corporis sed aliquam non voluptate corrupti excepturi maxime porro fuga.</div>
+                    <ul>
+                    
+                      <li>
+                        Generated major accounts through face-to-face and telephone sales activities.
+                      </li>
+                      
+                      <li>
+                        Established sales objectives, action plans, and targets for the sales team.
+                      </li>
+                      
+                      <li>  
+                        Managed reactive and proactive group sales efforts to maximize revenue opportunities.
+                      </li>
+                      
+                    </ul>
                   </div>
                 </div>
               </div>
