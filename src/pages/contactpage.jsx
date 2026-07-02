@@ -127,8 +127,17 @@ export const ContactPage = () => {
           {/* Contact Information Section - END*/}
           
           
-          <div className="row gx-5 justify-content-center">
+          <div className="row gx-5 justify-content-center mt-5">
             <div className="col-lg-8 col-xl-8">
+
+              <div className="text-center mb-5 mt-5">
+                <div className="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 mb-3">
+                  <i class="bi bi-chat-dots"></i>
+                </div>
+                <h1 className="fw-bolder text-gradient">Or send us a message</h1>
+                <p className="lead fw-normal text-muted mb-0">By filling up the form</p>
+              </div>
+              
               <form id="contactForm" onSubmit={handleSubmit}>
                 
                 {/* Full Name Input */}
