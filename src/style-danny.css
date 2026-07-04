@@ -1,3 +1,9 @@
+html,
+body {
+  -webkit-font-smoothing: antialiased !important; /* For Chrome/Safari */
+  -moz-osx-font-smoothing: grayscale !important; /* For Firefox */
+}
+
 /* MY CLASSES */
 .main-color {
   color: rgb(var(--bs-primary-rgb));
@@ -285,7 +291,7 @@ main section .under-jumbotron .d-flex.justify-content-evenly {
   transform-style: preserve-3d;
   backface-visibility: visible;
   display: inline-block;
-  /* color: rgb(var(--bs-primary-rgb)); */
+  color: rgb(var(--bs-primary-rgb));
 }
 
 .contact-page a i.bi[class*="bi-envelope"] {
