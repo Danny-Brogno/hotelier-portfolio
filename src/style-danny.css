@@ -647,6 +647,10 @@ footer ul.footer-list li:last-of-type {
     text-shadow: 0 0 1px rgba(0,0,0,0.01);
   }
   
+  div.container {
+    max-width: 1350px !important;
+  }
+  
   nav.navbar div.container div:first-of-type a span {
     font-size: 1.8rem;
   }
