@@ -4,19 +4,19 @@ body {
   -moz-osx-font-smoothing: grayscale !important; /* For Firefox */
 }
 
-body::-webkit-scrollbar {
-  width: 15px;
+html::-webkit-scrollbar {
+  width: 14px;
 }
 
-body::-webkit-scrollbar-track {
+html::-webkit-scrollbar-track {
   background: linear-gradient(315deg, var(--bs-black), rgb(var(--bs-primary-rgb)), var(--bs-black));
   background: rgb(var(--bs-primary-rgb));
 }
 
-body::-webkit-scrollbar-thumb {
+html::-webkit-scrollbar-thumb {
   background: var(--bs-black);
-  transition:0.5s;
-  border: 2px solid rgb(var(--bs-primary-rgb));
+  transition: 0.5s;
+  border: 3px solid rgb(var(--bs-primary-rgb));
   border-radius: 20px;
 }
 
@@ -54,6 +54,11 @@ header h1, header .fs-3 {
 }
 
 /* NAVBAR */
+
+nav.navbar {
+  width: 100% !important;
+}
+
 nav.navbar div.container div:first-of-type a span {
   font-size: 2rem;
 }
@@ -418,53 +423,6 @@ footer ul.footer-list li:last-of-type {
 /* ------------------------------------------- */
 /* ------------------------------------------- */
 
-/* MEDIA QUERY SPECIFIC FOR GOOGLE CHROME - START*/
-/* MEDIA QUERY SPECIFIC FOR GOOGLE CHROME - START*/
-/* MEDIA QUERY SPECIFIC FOR GOOGLE CHROME - START*/
-
-@supports (-webkit-appearance:none) and (not (-moz-appearance:none)) {
-  /* CSS rules placed here target Chrome, Safari, and Chromium Edge */
-  
-  /* DESKTOP VIEW - START*/
-  /* DESKTOP VIEW - START*/
-  /* DESKTOP VIEW - START*/
-  
-  nav.navbar div.container div:first-of-type a span {
-    font-size: 1.5rem;
-  }
-  
-  nav.navbar div.container div#navbarSupportedContent ul.navbar-nav {
-    font-size: 1rem;
-  }
-  
-  header.py-5 {
-    padding-bottom: 0 !important;
-  }
-  
-  main section .under-jumbotron p.lead {
-    font-size: 1.5rem;
-  }
-  
-  .homepage div.text-center h1 .text-gradient {
-    font-size: 2.5rem !important;
-  }
-  
-  /* DESKTOP VIEW - END*/
-  /* DESKTOP VIEW - END*/
-  /* DESKTOP VIEW - END*/
-  
-}
-
-/* MEDIA QUERY SPECIFIC FOR GOOGLE CHROME - END*/
-/* MEDIA QUERY SPECIFIC FOR GOOGLE CHROME - END*/
-/* MEDIA QUERY SPECIFIC FOR GOOGLE CHROME - END*/
-
-/* --------------------------------------------------------- */
-/* --------------------------------------------------------- */
-/* --------------------------------------------------------- */
-/* --------------------------------------------------------- */
-/* --------------------------------------------------------- */
-
 /* MEDIA QUERY THAT FIXES THE SCROLLING TEXT bug - START*/
 /* MEDIA QUERY THAT FIXES THE SCROLLING TEXT bug - START*/
 /* MEDIA QUERY THAT FIXES THE SCROLLING TEXT bug - START*/
@@ -668,3 +626,60 @@ footer ul.footer-list li:last-of-type {
 /* ------------------------------------------- */
 /* ------------------------------------------- */
 /* ------------------------------------------- */
+
+/* GOOGLE CHROME - SPECIFIC MEDIA QUERY FOR OTHER BROWSERS - START */
+/* GOOGLE CHROME - SPECIFIC MEDIA QUERY FOR OTHER BROWSERS - START */
+/* GOOGLE CHROME - SPECIFIC MEDIA QUERY FOR OTHER BROWSERS - START */
+/* GOOGLE CHROME - SPECIFIC MEDIA QUERY FOR OTHER BROWSERS - START */
+/* GOOGLE CHROME - SPECIFIC MEDIA QUERY FOR OTHER BROWSERS - START */
+
+@supports (-webkit-appearance:none) and (not (-moz-appearance:none)) {
+  
+  /* This scales down the baseline rem units safely across ALL views in Chrome */
+  html {
+    font-size: 85% !important; 
+  }
+
+  *,
+  *::before,
+  *::after {
+    -webkit-font-smoothing: antialiased !important;
+    text-shadow: 0 0 1px rgba(0,0,0,0.01);
+  }
+  
+  nav.navbar div.container div:first-of-type a span {
+    font-size: 1.8rem;
+  }
+  
+  nav.navbar div.container div#navbarSupportedContent ul.navbar-nav {
+    font-size: 1.3rem;
+  }
+  
+  header.py-5 {
+    padding-bottom: 0 !important;
+  }
+  
+  main section .under-jumbotron p.lead {
+    font-size: 1.7rem;
+  }
+  
+  .homepage div.text-center h1 .text-gradient {
+    font-size: 2.5rem !important;
+  }
+
+  /* CHROME MOBILE OVERRIDES: This stops the small media queries from breaking things */
+  @media screen and (max-width: 767px) {
+    
+    html {
+      font-size: 80% !important; /* Slightly scales down mobile view specifically for Chrome engine */
+    }
+    
+  }
+  
+}
+
+/* GOOGLE CHROME - SPECIFIC MEDIA QUERY FOR OTHER BROWSERS - END */
+/* GOOGLE CHROME - SPECIFIC MEDIA QUERY FOR OTHER BROWSERS - END */
+/* GOOGLE CHROME - SPECIFIC MEDIA QUERY FOR OTHER BROWSERS - END */
+/* GOOGLE CHROME - SPECIFIC MEDIA QUERY FOR OTHER BROWSERS - END */
+/* GOOGLE CHROME - SPECIFIC MEDIA QUERY FOR OTHER BROWSERS - END */
