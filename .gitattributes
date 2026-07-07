@@ -1,2 +1,7 @@
-tricsy-style.css linguist-vendored
-index.html linguist-vendored
+# Tell GitHub to ignore CSS files when calculating language statistics
+*.css linguist-documentation=false
+*.css linguist-vendored
+
+# Explicitly ensure JS and JSX files are counted as programming languages
+*.js linguist-detectable=true
+*.jsx linguist-detectable=true
