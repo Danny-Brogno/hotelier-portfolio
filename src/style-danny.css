@@ -409,6 +409,7 @@ footer ul.footer-list li:last-of-type {
   margin-right: 0;
 }
 
+
 /* ------------------------------------------- */
 /* ------------------------------------------- */
 /* ------------------------------------------- */
@@ -637,7 +638,7 @@ footer ul.footer-list li:last-of-type {
   
   /* This scales down the baseline rem units safely across ALL views in Chrome */
   html {
-    font-size: 85% !important; 
+    font-size: 90% !important; 
   }
 
   *,
@@ -648,34 +649,14 @@ footer ul.footer-list li:last-of-type {
   }
   
   div.container {
-    max-width: 1350px !important;
-  }
-  
-  nav.navbar div.container div:first-of-type a span {
-    font-size: 1.8rem;
-  }
-  
-  nav.navbar div.container div#navbarSupportedContent ul.navbar-nav {
-    font-size: 1.3rem;
-  }
-  
-  header.py-5 {
-    padding-bottom: 0 !important;
-  }
-  
-  main section .under-jumbotron p.lead {
-    font-size: 1.7rem;
-  }
-  
-  .homepage div.text-center h1 .text-gradient {
-    font-size: 2.5rem !important;
+    max-width: 1450px !important;
   }
 
   /* CHROME MOBILE OVERRIDES: This stops the small media queries from breaking things */
   @media screen and (max-width: 767px) {
     
     html {
-      font-size: 80% !important; /* Slightly scales down mobile view specifically for Chrome engine */
+      font-size: 85% !important; /* Slightly scales down mobile view specifically for Chrome engine */
     }
     
   }
