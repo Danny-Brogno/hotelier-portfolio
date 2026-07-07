@@ -18,9 +18,12 @@ export const ContactPage = () => {
 
   // Update specific properties instantly as the user types
   const handleChange = (e) => {
+    // Identify the field safely using id or fallback name attribute
+    const targetKey = e.target.id || e.target.name;
+
     setFormData({
       ...formData,
-      [e.target.id]: e.target.value
+      [targetKey]: e.target.value
     });
 
     // If an error is showing and the user changes or clears fields, remove the alert banner
@@ -82,7 +85,6 @@ export const ContactPage = () => {
             <p className="lead fw-normal text-muted mb-0">Let's work together!</p>
           </div>
           
-          
           {/* Contact Information Section - START*/}
           <div className="row justify-content-center mt-5 mb-5">
             <div className="col-lg-8 col-xl-8">
@@ -126,7 +128,6 @@ export const ContactPage = () => {
           </div>
           {/* Contact Information Section - END*/}
           
-          
           <div className="row gx-5 justify-content-center mt-5">
             <div className="col-lg-8 col-xl-8">
 
@@ -145,6 +146,7 @@ export const ContactPage = () => {
                   <input 
                     className="form-control" 
                     id="name" 
+                    name="name"
                     type="text" 
                     placeholder="Enter your name..." 
                     value={formData.name}
@@ -159,6 +161,7 @@ export const ContactPage = () => {
                   <input 
                     className="form-control" 
                     id="email" 
+                    name="email"
                     type="email" 
                     placeholder="name@example.com" 
                     value={formData.email}
@@ -173,6 +176,7 @@ export const ContactPage = () => {
                   <input 
                     className="form-control" 
                     id="phone" 
+                    name="phone"
                     type="tel" 
                     placeholder="(123) 456-7890" 
                     value={formData.phone}
@@ -190,6 +194,7 @@ export const ContactPage = () => {
                   <textarea 
                     className="form-control" 
                     id="message" 
+                    name="message"
                     placeholder="Enter your message here..." 
                     style={{ height: '10rem' }} 
                     value={formData.message}
@@ -210,7 +215,7 @@ export const ContactPage = () => {
                   </div>
                 )}
 
-                {/* FIX FOR BUG N1: Informative context message instead of system breakdown warning */}
+                {/* Error Banner Elements */}
                 {status === 'error' && (
                   <div className="text-center text-danger mb-3 fw-bolder">
                     Please check your entries and make sure all constraints match formatting rules.

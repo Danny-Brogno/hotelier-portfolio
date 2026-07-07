@@ -1,19 +1,22 @@
 import React from 'react';
+import { Link } from 'react-router-dom'; // Imported Link
 
-export const Navbar = ({ currentPage, setCurrentPage }) => {
+// Removed props since we don't need state anymore
+export const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light py-3">
       <div className="container px-5">
         {/* Changed to flex-column on mobile, resets back to row on large lg desktops */}
         <div className="d-flex flex-column align-items-flex-start d-lg-contents w-100">
-          <a className="navbar-brand m-0">
-            <span 
-              className="fw-bolder text-primary cursor-pointer title"
-              onClick={() => setCurrentPage("homepage")}
+          <span className="navbar-brand m-0">
+            {/* Swapped to a Link tag for the logo */}
+            <Link 
+              className="fw-bolder text-primary cursor-pointer title text-decoration-none"
+              to="/"
             >
               Majesca Maclan
-            </span>
-          </a>
+            </Link>
+          </span>
           
           {/* Added a top margin (mt-2) to give the button breathing room on mobile when stacked */}
           <button 
@@ -32,14 +35,14 @@ export const Navbar = ({ currentPage, setCurrentPage }) => {
         {/* The links dropdown wrapper */}
         <div className="collapse navbar-collapse w-100" id="navbarSupportedContent">
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder text-center">
-            <li className="nav-item cursor-pointer" onClick={() => setCurrentPage("homepage")}>
-              <a className="nav-link">Home</a>
+            <li className="nav-item">
+              <Link className="nav-link cursor-pointer" to="/">Home</Link>
             </li>
-            <li className="nav-item cursor-pointer" onClick={() => setCurrentPage("resumepage")}>
-              <a className="nav-link">Resume</a>
+            <li className="nav-item">
+              <Link className="nav-link cursor-pointer" to="/resume">Resume</Link>
             </li>
-            <li className="nav-item cursor-pointer" onClick={() => setCurrentPage("contactpage")}>
-              <a className="nav-link">Contact</a>
+            <li className="nav-item">
+              <Link className="nav-link cursor-pointer" to="/contact">Contact</Link>
             </li>
           </ul>
         </div>

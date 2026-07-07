@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'; // Imported Link
 
 const scrollToTheTop = () => {
   window.scrollTo({
@@ -7,7 +8,8 @@ const scrollToTheTop = () => {
   });
 };
 
-export const Footer = ({ currentPage, setCurrentPage }) => {
+// Removed props since we don't need state anymore
+export const Footer = () => {
   return (
     <footer className="bg-light py-4 mt-auto">
       <div className="container px-5">
@@ -40,14 +42,14 @@ export const Footer = ({ currentPage, setCurrentPage }) => {
           </div>
           
           <ul className="col-auto footer-list">
-            <li className="cursor-pointer" onClick={() => setCurrentPage("homepage")}>
-              Home
+            <li>
+              <Link className="cursor-pointer" to="/">Home</Link>
             </li>
-            <li className="cursor-pointer" onClick={() => setCurrentPage("resumepage")}>
-              Resume
+            <li>
+              <Link className="cursor-pointer" to="/resume">Resume</Link>
             </li>
-            <li className="cursor-pointer" onClick={() => setCurrentPage("contactpage")}>
-              Contact
+            <li>
+              <Link className="cursor-pointer" to="/contact">Contact</Link>
             </li>
           </ul>
           

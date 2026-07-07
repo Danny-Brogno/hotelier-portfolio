@@ -1,25 +1,22 @@
-import { useState, useEffect } from 'react'
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 
-// PAGES
 import { HomePage } from './pages/homepage.jsx';
 import { ResumePage } from './pages/resumepage.jsx';
 import { ContactPage } from './pages/contactpage.jsx';
-
-// ELEMENTS THAT ARE IN EVERY PAGE
 import { Navbar } from './components/navbar.jsx';
 import { Footer } from './components/footer.jsx';
 
-// CSS IMPORT
+// CSS IMPORTS (Kept right here!)
 import './style-tricsy.css';
 import './style-danny.css';
 
-function App() {
-  
-  const [currentPage, setCurrentPage] = useState("homepage");
-  
+// 1. This component replaces your old useEffect. 
+// It watches the URL path and resets the scroll instantly on every page change.
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
   useEffect(() => {
-    // requestAnimationFrame forces the browser to wait until the 
-    // new page elements are drawn before running the scroll logic
     requestAnimationFrame(() => {
       window.scrollTo({
         top: 0,
@@ -27,34 +24,31 @@ function App() {
         behavior: 'instant'
       });
     });
-  }, [currentPage]); 
-  
-  return (
-      <div id="App">
+  }, [pathname]); // Fires every time the URL path changes
 
-        {/* NAVBAR IS IN ALL PAGES */}
-        <Navbar setCurrentPage={setCurrentPage} currentPage={currentPage}/>
-        
-        {/* HOMEPAGE */}
-        {currentPage === "homepage" && 
-          (<HomePage currentPage={currentPage} setCurrentPage={setCurrentPage} />)
-        }
-        
-        {/* RESUME PAGE */}
-        {currentPage === "resumepage" && 
-          (<ResumePage currentPage={currentPage} setCurrentPage={setCurrentPage} />)
-        }
-        
-        {/* CONTACT PAGE */}
-        {currentPage === "contactpage" && 
-          (<ContactPage currentPage={currentPage} setCurrentPage={setCurrentPage} />)
-        }
-        
-        {/* FOOTER IS IN ALL PAGES */}
-        <Footer setCurrentPage={setCurrentPage} currentPage={currentPage}/>
-        
-      </div>
-    )
+  return null;
 }
 
-export default App
+function App() {
+  return (
+    <Router>
+      <ScrollToTop /> {/* Keeps your smooth animation logic intact */}
+      <div id="App">
+        {/* Header/Navbar stays visible on ALL pages */}
+        <Navbar /> 
+        
+        {/* Dynamic page switching happens right here based on the URL */}
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/resume" element={<ResumePage />} />
+          <Route path="/contact" element={<ContactPage />} />
+        </Routes>
+        
+        {/* Footer stays visible on ALL pages */}
+        <Footer />
+      </div>
+    </Router>
+  );
+}
+
+export default App;

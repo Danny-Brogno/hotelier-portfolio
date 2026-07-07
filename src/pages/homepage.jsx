@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import profileImg from '../assets/profile.png';
 
 // Fully fixed component to guarantee zero animation until viewport visibility flips
@@ -33,7 +34,8 @@ const AnimatedCounter = ({ endValue, duration = 4000, suffix = "", startTrigger 
   return <>{suffix === " years" ? `${count} years` : `${count}${suffix}`}</>;
 };
 
-export const HomePage = ({ currentPage, setCurrentPage }) => {
+export const HomePage = () => {
+  const navigate = useNavigate();
   const [animate, setAnimate] = useState(false);
   const [animateMetrics, setAnimateMetrics] = useState(false); 
   
@@ -81,7 +83,7 @@ export const HomePage = ({ currentPage, setCurrentPage }) => {
   const handleScrollToHighlights = (e) => {
     e.preventDefault();
     sessionStorage.setItem('scrollToPortfolioHighlights', 'true');
-    setCurrentPage("resumepage");
+    navigate('/resume');
   };
   
   return (
@@ -108,12 +110,12 @@ export const HomePage = ({ currentPage, setCurrentPage }) => {
                     </span>
                   </h1>
                   <div className="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xxl-start mb-3">
-                    <a className="btn btn-primary btn-lg px-5 py-3 me-sm-3 fs-6 fw-bolder" onClick={() => setCurrentPage("resumepage")}>
+                    <Link to="/resume" className="btn btn-primary btn-lg px-5 py-3 me-sm-3 fs-6 fw-bolder">
                       Resume
-                    </a>
-                    <a className="btn btn-outline-dark btn-lg px-5 py-3 fs-6 fw-bolder" onClick={() => setCurrentPage("contactpage")}>
+                    </Link>
+                    <Link to="/contact" className="btn btn-outline-dark btn-lg px-5 py-3 fs-6 fw-bolder">
                       Contact
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
