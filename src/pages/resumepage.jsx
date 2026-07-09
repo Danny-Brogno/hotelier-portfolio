@@ -10,14 +10,39 @@ export const ResumePage = () => {
     // Check if the home button flagged that we should scroll down directly
     const checkScrollFlag = sessionStorage.getItem('scrollToPortfolioHighlights');
     if (checkScrollFlag === 'true' && highlightsRef.current) {
-      // Remove flag immediately to avoid sticky behavior on hard refresh
       sessionStorage.removeItem('scrollToPortfolioHighlights');
-
-      // Instantly scroll down directly to that section
       setTimeout(() => {
         highlightsRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }, 100);
     }
+
+    // --- REVEAL ON SCROLL INTERSECTION OBSERVER ---
+    const observerOptions = {
+      root: null, // uses viewport
+      rootMargin: '0px',
+      threshold: 0.15 // Triggers when 15% of the card is visible
+    };
+
+    const handleIntersect = (entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          // Optional: stop observing once revealed so it doesn't blink if you scroll back up
+          observer.unobserve(entry.target); 
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(handleIntersect, observerOptions);
+    
+    // Select all items you want to animate
+    const targets = document.querySelectorAll('.reveal-on-scroll');
+    targets.forEach(target => observer.observe(target));
+
+    // Cleanup observer on component unmount
+    return () => {
+      targets.forEach(target => observer.unobserve(target));
+    };
   }, []);
 
   return (
@@ -44,7 +69,6 @@ export const ResumePage = () => {
                 href="/CV-Majesca Maclan.pdf" 
                 target="_blank" 
                 rel="noopener noreferrer"
-
               >
                 <i className="d-inline-block bi bi-download me-2"></i>
                 Download CV
@@ -53,7 +77,7 @@ export const ResumePage = () => {
 
             <section className="outer-container">
               {/* EXPERIENCE 1 */}
-              <div className="card shadow border-0 rounded-4 mb-5">
+              <div className="card shadow border-0 rounded-4 mb-5 reveal-on-scroll">
                 <div className="card-body p-5">
                   <div className="row align-items-center gx-5">
                     <div className="col text-center text-lg-start mb-4 mb-lg-0">
@@ -65,25 +89,17 @@ export const ResumePage = () => {
                       </div>
                     </div>
                     <ul className="col-lg-8">
-                      <li>
-                        Prepare Sales Reports and Annual Sales &amp; Marketing Plans.
-                      </li>
-                      <li>
-                        Create effective sales programs to increase brand awareness and positive perception.
-                      </li>
-                      <li>  
-                        Assist Managing Director in budgeting and strategic marketing within approved plans.
-                      </li>
-                      <li>
-                        Develop rates and deployment strategies through competitive data and demand analysis.
-                      </li>
+                      <li>Prepare Sales Reports and Annual Sales &amp; Marketing Plans.</li>
+                      <li>Create effective sales programs to increase brand awareness and positive perception.</li>
+                      <li>Assist Managing Director in budgeting and strategic marketing within approved plans.</li>
+                      <li>Develop rates and deployment strategies through competitive data and demand analysis.</li>
                     </ul>
                   </div>
                 </div>
               </div>
 
               {/* EXPERIENCE 2 */}
-              <div className="card shadow border-0 rounded-4 mb-5">
+              <div className="card shadow border-0 rounded-4 mb-5 reveal-on-scroll">
                 <div className="card-body p-5">
                   <div className="row align-items-center gx-5">
                     <div className="col text-center text-lg-start mb-4 mb-lg-0">
@@ -95,22 +111,16 @@ export const ResumePage = () => {
                       </div>
                     </div>
                     <ul className="col-lg-8">
-                      <li>
-                        Generated major accounts through face-to-face and telephone sales activities.
-                      </li>
-                      <li>
-                        Established sales objectives, action plans, and targets for the sales team.
-                      </li>
-                      <li>  
-                        Managed reactive and proactive group sales efforts to maximize revenue opportunities.
-                      </li>
+                      <li>Generated major accounts through face-to-face and telephone sales activities.</li>
+                      <li>Established sales objectives, action plans, and targets for the sales team.</li>
+                      <li>Managed reactive and proactive group sales efforts to maximize revenue opportunities.</li>
                     </ul>
                   </div>
                 </div>
               </div>
 
               {/* EXPERIENCE 3 */}
-              <div className="card shadow border-0 rounded-4 mb-5">
+              <div className="card shadow border-0 rounded-4 mb-5 reveal-on-scroll">
                 <div className="card-body p-5">
                   <div className="row align-items-center gx-5">
                     <div className="col text-center text-lg-start mb-4 mb-lg-0">
@@ -122,22 +132,16 @@ export const ResumePage = () => {
                       </div>
                     </div>
                     <ul className="col-lg-8">
-                      <li>
-                        Traveled to promote the hotel and develop potential business generators.
-                      </li>
-                      <li>
-                        Prepared collateral materials and educated planners on hotel procedures.
-                      </li>
-                      <li>  
-                        Coordinated Banquet Event Orders, AV equipment, and billing specifications.
-                      </li>
+                      <li>Traveled to promote the hotel and develop potential business generators.</li>
+                      <li>Prepared collateral materials and educated planners on hotel procedures.</li>
+                      <li>Coordinated Banquet Event Orders, AV equipment, and billing specifications.</li>
                     </ul>
                   </div>
                 </div>
               </div>
 
               {/* EXPERIENCE 4 */}
-              <div className="card shadow border-0 rounded-4 mb-5">
+              <div className="card shadow border-0 rounded-4 mb-5 reveal-on-scroll">
                 <div className="card-body p-5">
                   <div className="row align-items-center gx-5">
                     <div className="col text-center text-lg-start mb-4 mb-lg-0">
@@ -149,19 +153,15 @@ export const ResumePage = () => {
                       </div>
                     </div>
                     <ul className="col-lg-8">
-                      <li>
-                        Communicated with management regarding work schedules and client requirements.
-                      </li>
-                      <li>
-                        Ensured events ran smoothly while managing budgets and staff training.
-                      </li>
+                      <li>Communicated with management regarding work schedules and client requirements.</li>
+                      <li>Ensured events ran smoothly while managing budgets and staff training.</li>
                     </ul>
                   </div>
                 </div>
               </div>
 
               {/* EXPERIENCE 5 */}
-              <div className="card shadow border-0 rounded-4 mb-5">
+              <div className="card shadow border-0 rounded-4 mb-5 reveal-on-scroll">
                 <div className="card-body p-5">
                   <div className="row align-items-center gx-5">
                     <div className="col text-center text-lg-start mb-4 mb-lg-0">
@@ -173,19 +173,15 @@ export const ResumePage = () => {
                       </div>
                     </div>
                     <ul className="col-lg-8">
-                      <li>
-                        Managed full sales process for new prospects from initial contact to closure.
-                      </li>
-                      <li>
-                        Reported business trends and performance metrics to Group Sales Manager.
-                      </li>
+                      <li>Managed full sales process for new prospects from initial contact to closure.</li>
+                      <li>Reported business trends and performance metrics to Group Sales Manager.</li>
                     </ul>
                   </div>
                 </div>
               </div>
 
               {/* EXPERIENCE 6 */}
-              <div className="card shadow border-0 rounded-4 mb-5">
+              <div className="card shadow border-0 rounded-4 mb-5 reveal-on-scroll">
                 <div className="card-body p-5">
                   <div className="row align-items-center gx-5">
                     <div className="col text-center text-lg-start mb-4 mb-lg-0">
@@ -197,12 +193,8 @@ export const ResumePage = () => {
                       </div>
                     </div>
                     <ul className="col-lg-8">
-                      <li>
-                        Overall, in-charge for groups from 30 to 2,000 persons.
-                      </li>
-                      <li>
-                        Negotiated with suppliers and prepared timelines for multiple concurrent events.
-                      </li>
+                      <li>Overall, in-charge for groups from 30 to 2,000 persons.</li>
+                      <li>Negotiated with suppliers and prepared timelines for multiple concurrent events.</li>
                     </ul>
                   </div>
                 </div>
@@ -212,7 +204,8 @@ export const ResumePage = () => {
             <section>
               <h2 className="text-secondary fw-bolder mb-5">Education</h2>
 
-              <div className="card shadow border-0 rounded-4 mb-5">
+              {/* EDUCATION CARD */}
+              <div className="card shadow border-0 rounded-4 mb-5 reveal-on-scroll">
                 <div className="card-body p-5">
                   <div className="row align-items-center gx-5">
                     <div className="col text-center text-lg-start mb-4 mb-lg-0">
@@ -253,37 +246,25 @@ export const ResumePage = () => {
 
                     <div className="row row-cols-1 row-cols-md-3 mb-4">
                       <div className="col mb-4 mb-md-0">
-                        <div className="d-flex align-items-center bg-light rounded-4 p-3 h-100">
-                          Revenue Management
-                        </div>
+                        <div className="d-flex align-items-center bg-light rounded-4 p-3 h-100">Revenue Management</div>
                       </div>
                       <div className="col mb-4 mb-md-0">
-                        <div className="d-flex align-items-center bg-light rounded-4 p-3 h-100">
-                          Luxury Brand Marketing
-                        </div>
+                        <div className="d-flex align-items-center bg-light rounded-4 p-3 h-100">Luxury Brand Marketing</div>
                       </div>
                       <div className="col">
-                        <div className="d-flex align-items-center bg-light rounded-4 p-3 h-100">
-                          B2B &amp; Corporate Sales
-                        </div>
+                        <div className="d-flex align-items-center bg-light rounded-4 p-3 h-100">B2B &amp; Corporate Sales</div>
                       </div>
                     </div>
 
                     <div className="row row-cols-1 row-cols-md-3">
                       <div className="col mb-4 mb-md-0">
-                        <div className="d-flex align-items-center bg-light rounded-4 p-3 h-100">
-                          OPEX &amp; Capital Budgeting
-                        </div>
+                        <div className="d-flex align-items-center bg-light rounded-4 p-3 h-100">OPEX &amp; Capital Budgeting</div>
                       </div>
                       <div className="col mb-4 mb-md-0">
-                        <div className="d-flex align-items-center bg-light rounded-4 p-3 h-100">
-                          Stakeholder Relations
-                        </div>
+                        <div className="d-flex align-items-center bg-light rounded-4 p-3 h-100">Stakeholder Relations</div>
                       </div>
                       <div className="col">
-                        <div className="d-flex align-items-center bg-light rounded-4 p-3 h-100">
-                          Digital Acquisition &amp; OTA
-                        </div>
+                        <div className="d-flex align-items-center bg-light rounded-4 p-3 h-100">Digital Acquisition &amp; OTA</div>
                       </div>
                     </div>
                   </div>
@@ -301,37 +282,25 @@ export const ResumePage = () => {
 
                     <div className="row row-cols-1 row-cols-md-3 mb-4">
                       <div className="col mb-4 mb-md-0">
-                        <div className="d-flex align-items-center bg-light rounded-4 p-3 h-100">
-                          Guest Experience (CX)
-                        </div>
+                        <div className="d-flex align-items-center bg-light rounded-4 p-3 h-100">Guest Experience (CX)</div>
                       </div>
                       <div className="col mb-4 mb-md-0">
-                        <div className="d-flex align-items-center bg-light rounded-4 p-3 h-100">
-                          Luxury Brand Standards
-                        </div>
+                        <div className="d-flex align-items-center bg-light rounded-4 p-3 h-100">Luxury Brand Standards</div>
                       </div>
                       <div className="col">
-                        <div className="d-flex align-items-center bg-light rounded-4 p-3 h-100">
-                          MICE &amp; Event Planning
-                        </div>
+                        <div className="d-flex align-items-center bg-light rounded-4 p-3 h-100">MICE &amp; Event Planning</div>
                       </div>
                     </div>
 
                     <div className="row row-cols-1 row-cols-md-3">
                       <div className="col mb-4 mb-md-0">
-                        <div className="d-flex align-items-center bg-light rounded-4 p-3 h-100">
-                          Competitive Benchmarking
-                        </div>
+                        <div className="d-flex align-items-center bg-light rounded-4 p-3 h-100">Competitive Benchmarking</div>
                       </div>
                       <div className="col mb-4 mb-md-0">
-                        <div className="d-flex align-items-center bg-light rounded-4 p-3 h-100">
-                          Public Relations &amp; Media
-                        </div>
+                        <div className="d-flex align-items-center bg-light rounded-4 p-3 h-100">Public Relations &amp; Media</div>
                       </div>
                       <div className="col">
-                        <div className="d-flex align-items-center bg-light rounded-4 p-3 h-100">
-                          Hospitality Analytics
-                        </div>
+                        <div className="d-flex align-items-center bg-light rounded-4 p-3 h-100">Hospitality Analytics</div>
                       </div>
                     </div>
                   </div>
@@ -345,7 +314,6 @@ export const ResumePage = () => {
 
               <div className="container px-0">
                 <div className="row g-5">
-                  {/* LEFT COLUMN: Video Presentation */}
                   <div className="col-lg-6 d-flex flex-column">
                     <div className="shadow rounded-4 overflow-hidden bg-dark flex-grow-1 h-100 min-vh-25">
                       <iframe 
@@ -358,43 +326,30 @@ export const ResumePage = () => {
                     </div>
                   </div>
 
-                  {/* RIGHT COLUMN: Alternative Metrics & Case Study Download */}
                   <div className="col-lg-6">
                     <div className="mb-4">
-                      <span className="text-uppercase small fw-bold main-color d-block mb-1">
-                        Executive Case Study
-                      </span>
-                      <h2 className="fw-bold display-6">
-                        The Plaza Lodge Transformation
-                      </h2>
-                      <p className="text-muted">
-                        A look behind the numbers: how shifting from rigid budgets to an agile resource matrix unlocked record performance.
-                      </p>
+                      <span className="text-uppercase small fw-bold main-color d-block mb-1">Executive Case Study</span>
+                      <h2 className="fw-bold display-6">The Plaza Lodge Transformation</h2>
+                      <p className="text-muted">A look behind the numbers: how shifting from rigid budgets to an agile resource matrix unlocked record performance.</p>
                     </div>
 
-                    {/* Re-contextualized Metrics */}
                     <div className="row g-4 mb-4">
                       <div className="col-sm-6 no-padding-small">
                         <div className="p-3 bg-light rounded-4 h-100">
                           <span className="h2 fw-bold main-color d-block mb-1">1.45x</span>
                           <h3 className="h6 fw-bold text-uppercase mb-1">Commercial Lift</h3>
-                          <p className="text-muted small mb-0">
-                            Outperformed legacy year-over-year targets by scaling high-margin corporate bookings.
-                          </p>
+                          <p className="text-muted small mb-0">Outperformed legacy year-over-year targets by scaling high-margin corporate bookings.</p>
                         </div>
                       </div>
                       <div className="col-sm-6 no-padding-small">
                         <div className="p-3 bg-light rounded-4 h-100">
                           <span className="h2 fw-bold main-color d-block mb-1">£2.5M+</span>
                           <h3 className="h6 fw-bold text-uppercase mb-1">Capital Oversight</h3>
-                          <p className="text-muted small mb-0">
-                            Direct restructuring of vendor supply networks to maximize premium guest experiences.
-                          </p>
+                          <p className="text-muted small mb-0">Direct restructuring of vendor supply networks to maximize premium guest experiences.</p>
                         </div>
                       </div>
                     </div>
 
-                    {/* Action Button: Download PDF Strategy */}
                     <div className="d-grid d-sm-flex gap-3">
                       <a 
                         href="/project-description.pdf" 
