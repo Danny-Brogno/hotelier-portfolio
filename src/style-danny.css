@@ -239,19 +239,6 @@ main section .under-jumbotron .d-flex.justify-content-evenly {
 
 /* RESUME PAGE START */
 
-/* 1. The initial state of the cards before scrolling to them */
-.reveal-on-scroll {
-  opacity: 0;
-  transform: translateY(40px); /* Subtle slide up */
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-  will-change: opacity, transform;
-}
-
-/* 2. The state triggered when the element enters the viewport */
-.reveal-on-scroll.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
 
 
 /* RESUME PAGE END */
