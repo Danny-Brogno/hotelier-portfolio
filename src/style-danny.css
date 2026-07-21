@@ -551,7 +551,12 @@ footer ul.footer-list li:last-of-type {
 /* LARGE - MEDIA QUERY START */
 
 @media screen and (max-width: 1616px) {
-
+  
+  nav.navbar div.container div#navbarSupportedContent ul.navbar-nav li {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
 }
 
 /* LARGE - MEDIA QUERY END */
