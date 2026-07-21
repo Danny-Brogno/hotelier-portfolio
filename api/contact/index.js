@@ -12,13 +12,24 @@ module.exports = async function (context, req) {
     }
 
     try {
-        // Authenticate SendGrid with the secret key stored in Azure
-        sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+        const apiKey = process.env.SENDGRID_API_KEY;
+        
+        if (!apiKey) {
+            context.log.error("SENDGRID_API_KEY environment variable is missing in Azure!");
+            context.res = {
+                status: 500,
+                body: { error: "Server configuration error." }
+            };
+            return;
+        }
+
+        sgMail.setApiKey(apiKey);
 
         const msg = {
-            to: 'her-email@example.com', // <-- Put her real email here
-            from: 'your-verified-sendgrid-email@example.com', // <-- Sender email verified in SendGrid
-            subject: `New Portfolio Contact Form Submission from ${name}`,
+            to: 'majesca.maclan@gmail.com',
+            from: 'majesca.maclan@gmail.com',
+            replyTo: email,
+            subject: `New Portfolio Message from ${name}`,
             text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone || 'N/A'}\n\nMessage:\n${message}`,
             html: `
                 <h3>New Portfolio Contact Form Message</h3>
@@ -37,7 +48,7 @@ module.exports = async function (context, req) {
             body: { message: "Email sent successfully!" }
         };
     } catch (err) {
-        context.log.error('SendGrid error:', err);
+        context.log.error('SendGrid Error details:', err.response ? err.response.body : err);
         context.res = {
             status: 500,
             body: { error: "Failed to dispatch email." }
