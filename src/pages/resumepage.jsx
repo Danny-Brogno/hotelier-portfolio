@@ -348,13 +348,13 @@ export const ResumePage = () => {
                   {/* LEFT COLUMN: Video Presentation */}
                   <div className="col-lg-6 d-flex flex-column">
                     <div className="shadow rounded-4 overflow-hidden bg-dark flex-grow-1 h-100 min-vh-25">
-                      <iframe
-                        src="https://www.youtube-nocookie.com/embed/YOUR_VIDEO_ID"
-                        title="The Plaza Lodge Transformation"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      <iframe 
+                        src="https://www.youtube-nocookie.com/embed/jKI93UjPdxg?origin=https://happy-ground-0b97b200f.7.azurestaticapps.net"
+                        title="Majesca Maclan | Director of Sales and Marketing - Executive Video Introduction" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowFullScreen
                         referrerPolicy="strict-origin-when-cross-origin"
-                        className="w-full h-full rounded-lg"
+                        className="w-100 h-100 border-0"
                       ></iframe>
                     </div>
                   </div>
