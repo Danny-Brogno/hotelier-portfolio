@@ -21,6 +21,9 @@ export const ContactPage = () => {
     isSuccess: true 
   });
 
+  // Loading State Management
+  const [isLoading, setIsLoading] = useState(false);
+
   // Update form values as user types
   const handleChange = (e) => {
     const targetKey = e.target.id || e.target.name;
@@ -58,6 +61,9 @@ export const ContactPage = () => {
       return;
     }
 
+    // Turn on the loading animation
+    setIsLoading(true);
+
     try {
       // Azure Static Web Apps Route for managed API Functions: /api/contact
       const response = await fetch('/api/contact', {
@@ -88,6 +94,9 @@ export const ContactPage = () => {
         isSuccess: false
       });
       setShowModal(true);
+    } finally {
+      // Turn off the loading animation regardless of success or failure
+      setIsLoading(false);
     }
   };
 
@@ -122,6 +131,34 @@ export const ContactPage = () => {
             </div>
           </div>
         </div>
+      )}
+      
+      {/* ==================== LOADING ANIMATION OVERLAY ==================== */}
+      {isLoading && (
+        <section className="loading-container" style={{ display: 'flex' }}>
+          <div className="loader">
+            <span style={{ '--i': 1 }}></span>
+            <span style={{ '--i': 2 }}></span>
+            <span style={{ '--i': 3 }}></span>
+            <span style={{ '--i': 4 }}></span>
+            <span style={{ '--i': 5 }}></span>
+            <span style={{ '--i': 6 }}></span>
+            <span style={{ '--i': 7 }}></span>
+            <span style={{ '--i': 8 }}></span>
+            <span style={{ '--i': 9 }}></span>
+            <span style={{ '--i': 10 }}></span>
+            <span style={{ '--i': 11 }}></span>
+            <span style={{ '--i': 12 }}></span>
+            <span style={{ '--i': 13 }}></span>
+            <span style={{ '--i': 14 }}></span>
+            <span style={{ '--i': 15 }}></span>
+            <span style={{ '--i': 16 }}></span>
+            <span style={{ '--i': 17 }}></span>
+            <span style={{ '--i': 18 }}></span>
+            <span style={{ '--i': 19 }}></span>
+            <span style={{ '--i': 20 }}></span>
+          </div>
+        </section>
       )}
 
       <div className="container px-5">
