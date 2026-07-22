@@ -25,7 +25,7 @@ module.exports = async function (context, req) {
 
     const payload = JSON.stringify({
         personalizations: [{ to: [{ email: 'majesca.maclan@gmail.com' }] }],
-        from: { email: 'majesca.maclan@gmail.com' },
+        from: { email: 'noreply@majescamaclan.com' },
         reply_to: { email: email },
         subject: `New Portfolio Message from ${name}`,
         content: [
