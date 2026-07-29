@@ -32,7 +32,7 @@ function ScrollToTop() {
 function App() {
   return (
     <Router>
-      <ScrollToTop /> {/* Keeps your smooth animation logic intact */}
+      <ScrollToTop /> {/* Animation logic */}
       <div id="App">
         {/* Header/Navbar stays visible on ALL pages */}
         <Navbar /> 
