@@ -182,7 +182,7 @@ export const ContactPage = () => {
                   <a href="tel:+447849619283" className="text-decoration-none text-reset">
                     <div className="d-flex align-items-center gap-3">
                       <i className="bi bi-telephone-fill fs-3"></i>
-                      <span className="fs-4 fw-normal">+44 784 9619 283</span>
+                      <span className="fs-4 fw-normal">+44 7756 496006</span>
                     </div>
                   </a>
                 </div>
@@ -193,7 +193,7 @@ export const ContactPage = () => {
                   <a href="https://wa.me/447849619283" target="_blank" rel="noreferrer" className="text-decoration-none text-reset">
                     <div className="d-flex align-items-center gap-3">
                       <i className="bi bi-whatsapp fs-3"></i>
-                      <span className="fs-4 fw-normal">+44 784 9619 283</span>
+                      <span className="fs-4 fw-normal">+44 7756 496006</span>
                     </div>
                   </a>
                 </div>
