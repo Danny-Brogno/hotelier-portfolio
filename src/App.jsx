@@ -40,8 +40,8 @@ function App() {
         {/* Dynamic page switching happens right here based on the URL */}
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/resume" element={<ResumePage />} />
-          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/resumepage" element={<ResumePage />} />
+          <Route path="/contactpage" element={<ContactPage />} />
         </Routes>
         
         {/* Footer stays visible on ALL pages */}

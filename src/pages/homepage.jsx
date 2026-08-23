@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+
 import profileImg from '../assets/profile.png';
 
 // Fully fixed component to guarantee zero animation until viewport visibility flips

@@ -39,10 +39,10 @@ export const Navbar = () => {
               <Link className="nav-link cursor-pointer" to="/">Home</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link cursor-pointer" to="/resume">Resume</Link>
+              <Link className="nav-link cursor-pointer" to="/resumepage">Resume</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link cursor-pointer" to="/contact">Contact</Link>
+              <Link className="nav-link cursor-pointer" to="/contactpage">Contact</Link>
             </li>
           </ul>
         </div>
