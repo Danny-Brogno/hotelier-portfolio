@@ -46,10 +46,10 @@ export const Footer = () => {
               <Link className="cursor-pointer" to="/">Home</Link>
             </li>
             <li>
-              <Link className="cursor-pointer" to="/resumepage">Resume</Link>
+              <Link className="cursor-pointer" to="/resume">Resume</Link>
             </li>
             <li>
-              <Link className="cursor-pointer" to="/contactpage">Contact</Link>
+              <Link className="cursor-pointer" to="/contact">Contact</Link>
             </li>
           </ul>
           

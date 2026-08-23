@@ -2,8 +2,8 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import { useEffect } from 'react';
 
 import { HomePage } from './pages/homepage.jsx';
-import { ResumePage } from './pages/resumepage.jsx';
-import { ContactPage } from './pages/contactpage.jsx';
+import { ResumePage } from './pages/resume.jsx';
+import { ContactPage } from './pages/contact.jsx';
 import { Navbar } from './components/navbar.jsx';
 import { Footer } from './components/footer.jsx';
 
@@ -40,8 +40,8 @@ function App() {
         {/* Dynamic page switching happens right here based on the URL */}
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/resumepage" element={<ResumePage />} />
-          <Route path="/contactpage" element={<ContactPage />} />
+          <Route path="/resume" element={<ResumePage />} />
+          <Route path="/contact" element={<ContactPage />} />
         </Routes>
         
         {/* Footer stays visible on ALL pages */}
